@@ -1,5 +1,6 @@
 /**
  * Copyright 2016 leenjewel
+ * Copyright 2019 ZhangZisu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,39 +24,38 @@
 
 namespace node_kcp {
 
-    class KCPObject : public Nan::ObjectWrap
-    {
-        public:
-            static NAN_MODULE_INIT(Init);
+class KCPObject : public Nan::ObjectWrap {
+   public:
+	static NAN_MODULE_INIT(Init);
 
-        private:
-            explicit KCPObject(IUINT32 conv);
-            ~KCPObject();
+   private:
+	explicit KCPObject(IUINT32 conv);
+	~KCPObject();
 
-            static NAN_METHOD(New);
-            static NAN_METHOD(Release);
-            static NAN_METHOD(GetContext);
-            static NAN_METHOD(Recv);
-            static NAN_METHOD(Send);
-            static NAN_METHOD(Output);
-            static NAN_METHOD(Input);
-            static NAN_METHOD(Update);
-            static NAN_METHOD(Check);
-            static NAN_METHOD(Flush);
-            static NAN_METHOD(Peeksize);
-            static NAN_METHOD(Setmtu);
-            static NAN_METHOD(Wndsize);
-            static NAN_METHOD(Waitsnd);
-            static NAN_METHOD(Nodelay);
-            static Nan::Persistent<v8::Function> constructor;
-            static int kcp_output(const char *buf, int len, ikcpcb *kcp, void *user);
-            ikcpcb* kcp;
-            Nan::Persistent<v8::Function> output;
-            Nan::Persistent<v8::Object> context;
-            char *recvBuff = NULL;
-            unsigned int recvBuffSize = 1024;
-    };
+	static NAN_METHOD(New);
+	static NAN_METHOD(Release);
+	static NAN_METHOD(GetContext);
+	static NAN_METHOD(Recv);
+	static NAN_METHOD(Send);
+	static NAN_METHOD(Output);
+	static NAN_METHOD(Input);
+	static NAN_METHOD(Update);
+	static NAN_METHOD(Check);
+	static NAN_METHOD(Flush);
+	static NAN_METHOD(Peeksize);
+	static NAN_METHOD(Setmtu);
+	static NAN_METHOD(Wndsize);
+	static NAN_METHOD(Waitsnd);
+	static NAN_METHOD(Nodelay);
+	static Nan::Persistent<v8::Function> constructor;
+	static int kcp_output(const char *buf, int len, ikcpcb *kcp, void *user);
+	ikcpcb *kcp;
+	Nan::Persistent<v8::Function> output;
+	Nan::Persistent<v8::Object> context;
+	char *recvBuff = NULL;
+	unsigned int recvBuffSize = 1024;
+};
 
-}
+}  // namespace node_kcp
 
 #endif

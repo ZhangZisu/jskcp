@@ -1,5 +1,6 @@
 /**
  * Copyright 2016 leenjewel
+ * Copyright 2019 ZhangZisu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,15 +19,13 @@
 
 namespace node_kcp {
 
-    using v8::Local;
-    using v8::Object;
+using v8::Local;
+using v8::Object;
 
-    void InitModule(Local<Object> exports)
-    {
-        KCPObject::Init(exports);
-    }
-
-    NODE_MODULE(kcp, InitModule)
-
+void InitModule(Local<Object> exports) {
+	KCPObject::Init(exports);
 }
 
+NODE_MODULE(kcp, InitModule)
+
+}  // namespace node_kcp

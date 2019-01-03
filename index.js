@@ -1,1 +1,1 @@
-module.exports = require('./build/Release/kcp');
+module.exports = require('bindings')('kcp')

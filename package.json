@@ -1,17 +1,18 @@
 {
-  "name": "node-kcp",
-  "version": "1.0.10",
+  "name": "jskcp",
+  "version": "1.0.0",
   "description": "KCP protocol for Node.js",
-  "main": "node-kcp.node",
+  "types": "index",
   "dependencies": {
+    "bindings": "^1.3.1",
     "nan": "^2.4.0"
   },
   "devDependencies": {
     "chai": "latest",
-    "mocha": "latest",
     "grunt": "latest",
+    "grunt-contrib-clean": "latest",
     "grunt-mocha-test": "latest",
-    "grunt-contrib-clean": "latest"
+    "mocha": "latest"
   },
   "scripts": {
     "test": "grunt",
@@ -19,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leenjewel/node-kcp.git"
+    "url": "git+https://github.com/ZhangZisu/jskcp.git"
   },
   "keywords": [
     "kcp",
@@ -27,11 +28,11 @@
     "game",
     "server"
   ],
-  "author": "leenjewel",
+  "author": "ZhangZisu",
   "license": "Apache-2.0",
   "gypfile": true,
   "bugs": {
-    "url": "https://github.com/leenjewel/node-kcp/issues"
+    "url": "https://github.com/ZhangZisu/jskcp/issues"
   },
-  "homepage": "https://github.com/leenjewel/node-kcp#readme"
+  "homepage": "https://github.com/ZhangZisu/jskcp#readme"
 }
