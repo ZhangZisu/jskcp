@@ -5,7 +5,7 @@ declare namespace jskcp {
     const path: string;
     type KCPOutputCallback = (data: Buffer, size: number, context?: any) => any;
     class KCP {
-        constructor(wtf: number, context: any);
+        constructor(conv: number, context: any);
         check(current: number): number;
         context(): any;
         flush(): void;

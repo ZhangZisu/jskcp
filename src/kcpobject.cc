@@ -21,10 +21,6 @@
 
 #define RECV_BUFFER_SIZE 4096
 
-inline void string2char(String::Value string, int len, char* out) {
-	for (int i = 0; i < len; i++) out[i] = (char)((*string)[i]);
-}
-
 namespace node_kcp {
 using Nan::Callback;
 using Nan::FunctionCallbackInfo;
@@ -49,9 +45,7 @@ Persistent<Function> KCPObject::constructor;
 
 int KCPObject::kcp_output(const char* buf, int len, ikcpcb* kcp, void* user) {
 	KCPObject* thiz = (KCPObject*)user;
-	if (thiz->output.IsEmpty()) {
-		return len;
-	}
+	if (thiz->output.IsEmpty()) return len;
 	if (thiz->context.IsEmpty()) {
 		const unsigned argc = 2;
 		Local<Value> argv[argc] = {Nan::CopyBuffer(buf, len).ToLocalChecked(), Nan::New<Number>(len)};
@@ -172,7 +166,7 @@ NAN_METHOD(KCPObject::Input) {
 			Nan::ThrowError("malloc error");
 			return;
 		}
-		string2char(data, len, buf);
+		for (int i = 0; i < len; i++) buf[i] = (char)((*data)[i]);
 		int t = ikcp_input(thiz->kcp, (const char*)buf, len);
 		Local<Number> ret = Nan::New(t);
 		info.GetReturnValue().Set(ret);
@@ -200,7 +194,7 @@ NAN_METHOD(KCPObject::Send) {
 			Nan::ThrowError("malloc error");
 			return;
 		}
-		string2char(data, len, buf);
+		for (int i = 0; i < len; i++) buf[i] = (char)((*data)[i]);
 		int t = ikcp_send(thiz->kcp, (const char*)buf, len);
 		Local<Number> ret = Nan::New(t);
 		info.GetReturnValue().Set(ret);

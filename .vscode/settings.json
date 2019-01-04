@@ -3,5 +3,10 @@
         "activityBar.background": "#511D0D",
         "titleBar.activeBackground": "#712912",
         "titleBar.activeForeground": "#FEFCFB"
+    },
+    "files.associations": {
+        "vector": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
     }
 }
