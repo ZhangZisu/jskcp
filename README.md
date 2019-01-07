@@ -1,10 +1,10 @@
-node-kcp
+JSKCP
 ======================================
 
 [![Build Status][1]][2]
 
-[1]: https://api.travis-ci.org/leenjewel/node-kcp.svg?branch=master
-[2]: https://travis-ci.org/leenjewel/node-kcp
+[1]: https://api.travis-ci.org/zhangzisu/jskcp.svg?branch=master
+[2]: https://travis-ci.org/zhangzisu/jskcp
 
 
 [KCP Protocol](https://github.com/skywind3000/kcp) for Node.js
